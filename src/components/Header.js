@@ -6,7 +6,7 @@ const style = {
   top: '0px',
   left: '0px',
   right: '0px',
-  'background-color': '#0A131C',
+  backgroundColor: '#0A131C',
   color: '#fff'
 };
 
