@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { signIn } from '../actions'
 
 let SignIn = ({ dispatch }) => {
     let email, password
@@ -12,7 +13,7 @@ let SignIn = ({ dispatch }) => {
           if (!email.value.trim() || !password.value.trim()) {
             return
           }
-          //dispatch(signIn(email.value.trim(), password.value.trim()))
+          dispatch(signIn(email.value.trim(), password.value.trim()))
           email.value = ''
           password.value = ''
         }}>

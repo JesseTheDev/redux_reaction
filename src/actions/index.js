@@ -14,3 +14,9 @@ export const toggleTodo = (id) => ({
   type: 'TOGGLE_TODO',
   id
 })
+
+export const signIn = (email, password) => ({
+    type: 'SIGN_IN',
+    email,
+    password
+})
