@@ -1,17 +1,16 @@
 import React from 'react'
+import AppBar from 'material-ui/AppBar'
 
 const style = {
-  height: '50px',
-  lineHeight: '50px',
-  padding: '0px 15px',
-  backgroundColor: '#0A131C',
-  color: '#fff'
+  backgroundColor: '#0086E3',
 };
 
 const Header = () => (
-  <nav style={style}>
-    <a>Redux Reaction</a>
-  </nav>
+  <AppBar
+    title="Redux Reaction"
+    style={style}
+    showMenuIconButton={false}
+  />
 )
 
 export default Header

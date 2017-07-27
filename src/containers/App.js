@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../components/Header'
-import Feed from '../components/Feed'
+import Feed from './Feed'
 import { connect } from 'react-redux'
 
 import { fetchActivityIfNeeded } from '../actions'

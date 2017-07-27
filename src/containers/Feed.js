@@ -1,5 +1,5 @@
 import React from 'react'
-import Activity from './Activity'
+import Activity from '../components/Activity'
 
 const Feed = ({ activity, isFetching }) => (
   <div>
