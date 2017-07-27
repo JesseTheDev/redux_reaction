@@ -2,17 +2,15 @@ import React from 'react'
 
 const style = {
   height: '50px',
-  display: 'fixed',
-  top: '0px',
-  left: '0px',
-  right: '0px',
+  lineHeight: '50px',
+  padding: '0px 15px',
   backgroundColor: '#0A131C',
   color: '#fff'
 };
 
 const Header = () => (
   <nav style={style}>
-    Header
+    <a>Redux Reaction</a>
   </nav>
 )
 
