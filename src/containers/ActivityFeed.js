@@ -1,14 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getActivity } from '../actions'
+import Activity from '../components/Activity'
 
 let ActivityFeed = ({ dispatch }) => {
-    let activity = dispatch(getActivity())
+    /* get dummy activity data */
+    let activity = dispatch(getActivity()).data
+     
+    /* loop through and render it in the activity component */
     console.log(activity)
     return (
-        <div>
-            hey
-        </div>
+      <div>
+        {activity.map((item, key) =>
+          <Activity
+            key={key}
+            item={item}
+          />
+        )}
+      </div>
     )
 }
 
