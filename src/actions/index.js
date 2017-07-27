@@ -3,3 +3,7 @@ export const signIn = (email, password) => ({
     email,
     password
 })
+
+export const getActivity = () => ({
+    type: 'GET_NETWORK_ACTIVITY'
+})

@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import { getActivity } from '../actions'
 
 let ActivityFeed = ({ dispatch }) => {
+    let activity = dispatch(getActivity())
+    console.log(activity)
     return (
-      <div>
-        hey
-      </div>
+        <div>
+            hey
+        </div>
     )
 }
 
