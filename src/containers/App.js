@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import Header from '../components/Header'
-import Activity from '../components/Activity'
+import Feed from '../components/Feed'
 import { connect } from 'react-redux'
 
 import { fetchActivityIfNeeded } from '../actions'
+
+const contentStyle = {
+  padding: '15px'
+}
 
 
 class App extends Component {
@@ -17,26 +21,18 @@ class App extends Component {
     const { activity, isFetching, lastUpdated } = this.props
     return (
       <div>
-      <Header />
-        <p>
-          { lastUpdated &&
-            <span>
-              Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
-              {' '}
-            </span>
-          }
-        </p>
-        {isFetching && activity.length === 0 && <h2>Loading...</h2>}
-        {!isFetching && activity.length === 0 && <h2>Empty.</h2>}
-        {activity.length > 0 &&
-          <div>
-            {activity.map((item, key) =>
-              <Activity
-                key={key}
-                item={item}
-              />
-            )}
-          </div>}
+        <Header />
+        <div style={contentStyle}>
+          <p>
+            { lastUpdated &&
+              <span>
+                Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+                {' '}
+              </span>
+            }
+          </p>
+          <Feed activity={activity} isFetching={isFetching} />
+        </div>
       </div>
     )
   }
