@@ -6,7 +6,8 @@ import { connect } from 'react-redux'
 import { fetchActivityIfNeeded } from '../actions'
 
 const contentStyle = {
-  padding: '80px 15px 15px'
+  padding: '80px 15px 15px',
+  maxWidth: '600px'
 }
 
 
@@ -32,7 +33,6 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-  console.log(state.networkActivity)
   const { isFetching, activity } = state.networkActivity
 
   return {
