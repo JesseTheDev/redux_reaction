@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { fetchActivityIfNeeded } from '../actions'
 
 const contentStyle = {
-  padding: '15px'
+  padding: '80px 15px 15px'
 }
 
 
@@ -18,19 +18,11 @@ class App extends Component {
   }
 
   render() {
-    const { activity, isFetching, lastUpdated } = this.props
+    const { activity, isFetching } = this.props
     return (
       <div>
         <Header />
         <div style={contentStyle}>
-          <p>
-            { lastUpdated &&
-              <span>
-                Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
-                {' '}
-              </span>
-            }
-          </p>
           <Feed activity={activity} isFetching={isFetching} />
         </div>
       </div>
@@ -41,12 +33,11 @@ class App extends Component {
 
 function mapStateToProps(state) {
   console.log(state.networkActivity)
-  const { isFetching, lastUpdated, activity } = state.networkActivity
+  const { isFetching, activity } = state.networkActivity
 
   return {
     activity,
-    isFetching,
-    lastUpdated
+    isFetching
   }
 }
 

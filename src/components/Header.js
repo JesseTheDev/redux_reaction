@@ -1,8 +1,9 @@
 import React from 'react'
-import AppBar from 'material-ui/AppBar'
+import { AppBar } from 'material-ui'
 
 const style = {
   backgroundColor: '#0086E3',
+  position: 'fixed'
 };
 
 const Header = () => (
