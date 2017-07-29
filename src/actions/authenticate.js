@@ -24,6 +24,9 @@ function authenticate(email, password){
       method: 'POST',
       body: form})
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => {
+        localStorage.token = json.token
+        localStorage.user = JSON.stringify(json.user)
+      })
   }
 }
