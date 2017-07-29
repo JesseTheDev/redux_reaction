@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
 import {
     REQUEST_ACTIVITY,
-    RECEIVE_ACTIVITY
+    RECEIVE_ACTIVITY,
+    CHANGE_FORM
 } from './actions'
 
 const networkActivity = (state = {isFetching: false, activity: [], lastUpdated: null}, action) => {
@@ -21,8 +22,19 @@ const networkActivity = (state = {isFetching: false, activity: [], lastUpdated: 
     }
 }
 
+const login = (state = {email: ''}, action) => {
+  switch (action.type) {
+    case CHANGE_FORM:
+    return Object.assign({}, state, {
+        email: action.email
+    })
+    default:
+      return state
+  }
+}
 const rootReducer = combineReducers({
-    networkActivity
+    networkActivity,
+    login
 })
 
 export default rootReducer

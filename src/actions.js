@@ -2,7 +2,14 @@ import fetch from 'isomorphic-fetch'
 
 export const REQUEST_ACTIVITY = 'REQUEST_ACTIVITY'
 export const RECEIVE_ACTIVITY = 'RECEIVE_ACTIVITY'
+export const CHANGE_FORM = 'CHANGE_FORM'
 
+export function changeForm(email){
+  return {
+    type: CHANGE_FORM,
+    email: email
+  }
+}
 function requestActivity() {
   return {
     type: REQUEST_ACTIVITY
