@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { changeForm, submitLogin } from '../actions'
+import { changeForm, submitLogin } from '../actions/authenticate'
 
 class LoginForm extends Component {
 

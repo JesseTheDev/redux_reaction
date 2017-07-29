@@ -4,7 +4,7 @@ import Feed from './Feed'
 import LoginForm from './LoginForm'
 import { connect } from 'react-redux'
 
-import { fetchActivityIfNeeded } from '../actions'
+import { fetchActivityIfNeeded } from '../actions/activity'
 
 const contentStyle = {
   padding: '80px 15px 15px',
