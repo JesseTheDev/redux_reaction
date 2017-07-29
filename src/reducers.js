@@ -22,12 +22,11 @@ const networkActivity = (state = {isFetching: false, activity: [], lastUpdated: 
     }
 }
 
-const authenticate = (state = {loginData: {email: ''}}, action) => {
+const authenticate = (state = {loginData: {email: '', password: ''}}, action) => {
   switch (action.type) {
     case CHANGE_FORM:
-    return Object.assign({}, state, {
-        loginData: action.loginData
-    })
+    console.log(state)
+    return Object.assign({}, state, {loginData: action.loginData})
     default:
       return state
   }
