@@ -4,10 +4,10 @@ export const REQUEST_ACTIVITY = 'REQUEST_ACTIVITY'
 export const RECEIVE_ACTIVITY = 'RECEIVE_ACTIVITY'
 export const CHANGE_FORM = 'CHANGE_FORM'
 
-export function changeForm(email){
+export function changeForm(loginData){
   return {
     type: CHANGE_FORM,
-    email: email
+    loginData: loginData
   }
 }
 function requestActivity() {

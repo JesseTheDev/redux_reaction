@@ -22,11 +22,11 @@ const networkActivity = (state = {isFetching: false, activity: [], lastUpdated: 
     }
 }
 
-const login = (state = {email: ''}, action) => {
+const authenticate = (state = {loginData: {email: ''}}, action) => {
   switch (action.type) {
     case CHANGE_FORM:
     return Object.assign({}, state, {
-        email: action.email
+        loginData: action.loginData
     })
     default:
       return state
@@ -34,7 +34,7 @@ const login = (state = {email: ''}, action) => {
 }
 const rootReducer = combineReducers({
     networkActivity,
-    login
+    authenticate
 })
 
 export default rootReducer

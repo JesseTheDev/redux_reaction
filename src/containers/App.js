@@ -26,23 +26,27 @@ class App extends Component {
       <div>
         <Header />
         <div style={contentStyle}>
-        <input type="text" value={email} onChange={this.changeForm.bind(this)}/><button >Go</button>
+        <input type="text" value={email} onChange={this.changeEmail.bind(this)}/><button >Go</button>
           <Feed activity={activity} isFetching={isFetching} />
         </div>
       </div>
     )
   }
 
-  changeForm(e){
+  changeEmail(e){
+    this.changeForm('email', e.target.value)
+  }
+  changeForm(type, value){
     const { dispatch } = this.props
-    dispatch(changeForm(e.target.value))
+    dispatch(changeForm({[type]: value}))
   }
 }
 
 
 function mapStateToProps(state) {
+  console.log(state, 'here')
   const { isFetching, activity } = state.networkActivity
-  const { email } = state.login
+  const { email } = state.authenticate.loginData
   return {
     activity,
     isFetching,
