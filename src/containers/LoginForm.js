@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { changeForm, submitLogin } from '../actions/authenticate'
+import { changeForm, loginUser } from '../actions/authenticate'
 
 class LoginForm extends Component {
-
+  componentWillReceiveProps(nextProps){
+    if(nextProps.isLoggedIn)
+      this.props.history.push('/')
+  }
   render() {
     const { email, password } = this.props
     return (
       <form onSubmit={this.submitLogin.bind(this)}>
-        <input type="text" value={email} onChange={this.changeEmail.bind(this)}/><input type="text" value={password} onChange={this.changePassword.bind(this)}/><button type="submit">Go</button>
+        <input type="text" value={email} onChange={this.changeEmail.bind(this)}/>
+        <input type="text" value={password} onChange={this.changePassword.bind(this)}/>
+        <button type="submit" onClick={this.submitLogin.bind(this)}>Go</button>
       </form>
     )
   }
@@ -25,14 +30,16 @@ class LoginForm extends Component {
     const { dispatch } = this.props
 
     e.preventDefault();
-    dispatch(submitLogin(this.props.email, this.props.password))
+    dispatch(loginUser(this.props.email, this.props.password))
   }
 }
 
 LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  dispatch: PropTypes.func.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default LoginForm

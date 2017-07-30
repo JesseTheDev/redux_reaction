@@ -1,5 +1,7 @@
 // Authentication types
 export const CHANGE_FORM = 'CHANGE_FORM'
+export const LOGIN_USER_REQUESTED = 'LOGIN_USER_REQUESTED'
+export const LOGIN_USER_SUCCEEDED = 'LOGIN_USER_SUCCEEDED'
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN'
 
 // Activity types
