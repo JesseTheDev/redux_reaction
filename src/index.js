@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import configureStore from './configureStore'
 import routes from './routes'
+import history from './history'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
@@ -17,7 +18,7 @@ injectTapEventPlugin()
 
 render (
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <div>
         <MuiThemeProvider>
           {routes}

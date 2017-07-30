@@ -20,7 +20,6 @@ class App extends Component {
 
   render() {
     const { activity, isFetching } = this.props
-    const { dispatch } = this.props
 
     return (
       <div>
