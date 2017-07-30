@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../components/Header'
 import Feed from './Feed'
-import LoginForm from './LoginForm'
 import { connect } from 'react-redux'
 
 import { fetchActivityIfNeeded } from '../actions/activity'
@@ -21,14 +20,12 @@ class App extends Component {
 
   render() {
     const { activity, isFetching } = this.props
-    const { email, password } = this.props
     const { dispatch } = this.props
 
     return (
       <div>
         <Header />
         <div style={contentStyle}>
-          <LoginForm email={email} password={password} dispatch={dispatch}/>
           <Feed activity={activity} isFetching={isFetching} />
         </div>
       </div>
@@ -40,12 +37,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
   const { isFetching, activity } = state.networkActivity
-  const { email, password } = state.authenticate.loginData
   return {
     activity,
     isFetching,
-    email,
-    password
   }
 }
 
