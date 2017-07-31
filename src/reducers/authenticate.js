@@ -14,17 +14,17 @@ let initialState = {
 export default function authenticate(state = initialState, action) {
     switch (action.type) {
         case CHANGE_FORM:
-            return Object.assign({}, state, {loginData: action.loginData})
+            return {...state, loginData: action.loginData}
         case LOGIN_USER_SUCCEEDED:
-            return Object.assign({}, state, {loginData: {email: '', password: ''}, isLoggedIn: action.isLoggedIn})
+            return {...state, loginData: {email: '', password: ''}, isLoggedIn: action.isLoggedIn}
         case USER_IS_LOGGED_IN:
-            return Object.assign({}, state, {isLoggedIn: true})
+            return {...state, isLoggedIn: true}
         case LOGIN_USER_REQUESTED:
-            return Object.assign({}, state, {isLoggingIn: true})
+            return {...state, isLoggingIn: true}
         case LOGOUT_USER:
             delete localStorage.token
             delete localStorage.user
-            return Object.assign({}, state, {isLoggedIn: false})
+            return {...state, isLoggedIn: false}
         default:
             return state
     }
