@@ -6,40 +6,37 @@ import { connect } from 'react-redux'
 import { fetchActivityIfNeeded } from '../actions/activity'
 
 const contentStyle = {
-  padding: '80px 15px 15px',
-  maxWidth: '600px'
+    padding: '80px 15px 15px',
+    maxWidth: '600px'
 }
-
 
 class App extends Component {
 
-  componentWillMount() {
-    const { dispatch } = this.props
-    dispatch(fetchActivityIfNeeded())
-  }
+    componentWillMount() {
+        const { dispatch } = this.props
+        dispatch(fetchActivityIfNeeded())
+    }
 
-  render() {
-    const { activity, isFetching } = this.props
+    render() {
+        const { activity, isFetching } = this.props
 
-    return (
-      <div>
-        <Header />
-        <div style={contentStyle}>
-          <Feed activity={activity} isFetching={isFetching} />
-        </div>
-      </div>
-    )
-  }
-
+        return (
+            <div>
+                <Header />
+                <div style={contentStyle}>
+                    <Feed activity={activity} isFetching={isFetching} />
+                </div>
+            </div>
+        )
+    }
 }
 
-
 function mapStateToProps(state) {
-  const { isFetching, activity } = state.networkActivity
-  return {
-    activity,
-    isFetching,
-  }
+    const { isFetching, activity } = state.networkActivity
+    return {
+        activity,
+        isFetching,
+    }
 }
 
 export default connect(mapStateToProps)(App)
