@@ -1,8 +1,10 @@
 import React from 'react'
 import Activity from '../components/Activity'
+import Logout from './Logout'
 
 const Feed = ({ activity, isFetching }) => (
   <div>
+    <Logout />
     {activity.length > 0 &&
       <div>
         {activity.map((item, key) =>

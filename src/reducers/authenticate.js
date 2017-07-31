@@ -1,5 +1,5 @@
 import {
-    CHANGE_FORM, LOGIN_USER_REQUESTED, LOGIN_USER_SUCCEEDED, USER_IS_LOGGED_IN
+    CHANGE_FORM, LOGIN_USER_REQUESTED, LOGIN_USER_SUCCEEDED, USER_IS_LOGGED_IN, LOGOUT_USER
 } from '../actionTypes'
 
 let initialState = {
@@ -17,6 +17,10 @@ export default function authenticate(state = initialState, action) {
       return Object.assign({}, state, {loginData: {email: '', password: ''}, isLoggedIn: action.isLoggedIn})
     case USER_IS_LOGGED_IN:
         return Object.assign({}, state, {isLoggedIn: true})
+    case LOGOUT_USER:
+        delete localStorage.token
+        delete localStorage.user
+        return Object.assign({}, state, {isLoggedIn: false})
     default:
       return state
   }

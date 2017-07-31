@@ -5,7 +5,7 @@ import { changeForm, loginUser } from '../actions/authenticate'
 class LoginForm extends Component {
   componentWillReceiveProps(nextProps){
     if(nextProps.isLoggedIn)
-      this.props.history.push('/')
+      nextProps.history.push('/')
   }
   render() {
     const { email, password } = this.props

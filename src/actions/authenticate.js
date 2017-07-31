@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import FormData from 'isomorphic-form-data'
-import { CHANGE_FORM, LOGIN_USER_REQUESTED, LOGIN_USER_SUCCEEDED, USER_IS_LOGGED_IN } from '../actionTypes'
+import { CHANGE_FORM, LOGIN_USER_REQUESTED, LOGIN_USER_SUCCEEDED, USER_IS_LOGGED_IN, LOGOUT_USER } from '../actionTypes'
 
 export function changeForm(loginData){
   return {
@@ -49,4 +49,9 @@ function authenticate(email, password){
         dispatch(loginUserSucceeded())
       })
   }
+}
+export function logoutUser(){
+    return {
+        type: LOGOUT_USER
+    }
 }
