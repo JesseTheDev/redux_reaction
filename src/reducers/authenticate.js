@@ -7,7 +7,8 @@ let initialState = {
     email: '',
     password: ''
   },
-  isLoggedIn: false
+  isLoggedIn: false,
+  isLoggingIn: false
 }
 export default function authenticate(state = initialState, action) {
   switch (action.type) {
@@ -17,6 +18,8 @@ export default function authenticate(state = initialState, action) {
       return Object.assign({}, state, {loginData: {email: '', password: ''}, isLoggedIn: action.isLoggedIn})
     case USER_IS_LOGGED_IN:
         return Object.assign({}, state, {isLoggedIn: true})
+    case LOGIN_USER_REQUESTED:
+        return Object.assign({}, state, {isLoggingIn: true})
     case LOGOUT_USER:
         delete localStorage.token
         delete localStorage.user

@@ -31,13 +31,12 @@ class Login extends Component {
       this.props.history.push('/')
   }
   render() {
-    const { email, password, isLoggedIn, dispatch, history } = this.props
 
     return (
       <div>
         <Header />
         <div style={contentStyle}>
-          <LoginForm email={email} password={password} dispatch={dispatch} isLoggedIn={isLoggedIn} history={history}/>
+          <LoginForm />
         </div>
       </div>
     )

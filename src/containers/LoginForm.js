@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 import { changeForm, loginUser } from '../actions/authenticate'
-import {Card, CardHeader, CardText} from 'material-ui/Card'
+import { Card, CardHeader, CardText } from 'material-ui/Card'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import RefreshIndicator from 'material-ui/RefreshIndicator'
 
 class LoginForm extends Component {
   componentWillReceiveProps(nextProps){
-    if(nextProps.isLoggedIn)
+    if(nextProps.isLoggedIn && nextProps.history)
       nextProps.history.push('/')
   }
   render() {
-    const { email, password } = this.props
+    const { email, password, isLoggingIn } = this.props
     return (
       <Card>
         <CardHeader
@@ -33,7 +34,15 @@ class LoginForm extends Component {
             onChange={this.changePassword.bind(this)}
             style={{float: 'right'}}
           />
-          <RaisedButton label="Login" primary={true} type="submit" onClick={this.submitLogin.bind(this)} />
+          <RaisedButton label="Login" primary={true} type="submit" onClick={this.submitLogin.bind(this)} disabled={isLoggingIn}/>
+          {isLoggingIn &&
+              <RefreshIndicator
+      size={40}
+      left={10}
+      top={0}
+      status="loading"
+      style={{display: 'inline-block', position: 'relative'}}
+    />}
         </form>
         </CardText>
       </Card>
@@ -57,12 +66,15 @@ class LoginForm extends Component {
   }
 }
 
-LoginForm.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+function mapStateToProps(state) {
+  const { email, password } = state.authenticate.loginData
+  const { isLoggedIn, isLoggingIn } = state.authenticate
+  return {
+    email,
+    password,
+    isLoggedIn,
+    isLoggingIn
+  }
 }
 
-export default LoginForm
+export default connect(mapStateToProps)(LoginForm)
