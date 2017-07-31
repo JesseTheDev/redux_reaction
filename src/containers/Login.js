@@ -5,7 +5,7 @@ import {
 import Header from '../components/Header'
 import LoginForm from './LoginForm'
 import { connect } from 'react-redux'
-import isLoggedIn from '../auth'
+import { userIsLoggedIn } from '../actions/authenticate'
 
 const contentStyle = {
   padding: '80px 15px 15px',
@@ -14,10 +14,22 @@ const contentStyle = {
 
 class Login extends Component {
   componentWillMount() {
-    if(isLoggedIn)
+      const { dispatch } = this.props
+
+      if(this.props.isLoggedIn)
+      this.props.history.push('/')
+      if(localStorage.token != null && localStorage.user != null)
+  dispatch(userIsLoggedIn())
+  }
+  componentWillReceiveProps(nextProps) {
+      if(nextProps.isLoggedIn)
+          nextProps.history.push('/')
+  }
+  componentDidMount() {
+      console.log(this.props, 'did')
+      if(this.props.isLoggedIn)
       this.props.history.push('/')
   }
-
   render() {
     const { email, password, isLoggedIn, dispatch, history } = this.props
 
@@ -45,4 +57,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Login))
+export default connect(mapStateToProps)(Login)

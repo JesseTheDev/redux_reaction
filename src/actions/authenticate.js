@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import FormData from 'isomorphic-form-data'
-import { CHANGE_FORM, LOGIN_USER_REQUESTED, LOGIN_USER_SUCCEEDED } from '../actionTypes'
+import { CHANGE_FORM, LOGIN_USER_REQUESTED, LOGIN_USER_SUCCEEDED, USER_IS_LOGGED_IN } from '../actionTypes'
 
 export function changeForm(loginData){
   return {
@@ -27,6 +27,11 @@ export function loginUser(email, password){
   }
 }
 
+export function userIsLoggedIn(){
+    return{
+        type: USER_IS_LOGGED_IN
+    }
+}
 function authenticate(email, password){
   let form = new FormData();
   form.append('email',email)

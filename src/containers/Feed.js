@@ -19,15 +19,3 @@ const Feed = ({ activity, isFetching }) => (
 )
 
 export default Feed
-
-
-
-
-
-
-
-
-
-
-
-
