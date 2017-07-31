@@ -7,11 +7,11 @@ import DevTools from './containers/DevTools'
 import App from './containers/App'
 import Login from './containers/Login'
 import store from './configureStore'
-import Auth from './auth'
+import EnsureAuth from './auth'
 
 export default (
   <div>
-    <Route path="/" exact component={Auth(App)} />
+    <Route path="/" exact component={EnsureAuth(App)} />
     <Route path="/login" component={Login} />
     <DevTools />
   </div>
