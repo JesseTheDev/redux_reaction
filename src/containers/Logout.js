@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { logoutUser } from '../actions/authenticate'
+import RaisedButton from 'material-ui/RaisedButton'
 
 class Logout extends Component {
   render() {
     return (
-      <button onClick={this.logoutUser.bind(this)}>Logout</button>
+        <RaisedButton label="Logout" primary={true} onClick={this.logoutUser.bind(this)} />
     )
   }
 

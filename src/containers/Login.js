@@ -37,7 +37,6 @@ class Login extends Component {
       <div>
         <Header />
         <div style={contentStyle}>
-          <h1>Login</h1>
           <LoginForm email={email} password={password} dispatch={dispatch} isLoggedIn={isLoggedIn} history={history}/>
         </div>
       </div>

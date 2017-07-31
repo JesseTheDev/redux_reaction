@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { changeForm, loginUser } from '../actions/authenticate'
+import {Card, CardHeader, CardText} from 'material-ui/Card'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 
 class LoginForm extends Component {
   componentWillReceiveProps(nextProps){
@@ -10,11 +13,31 @@ class LoginForm extends Component {
   render() {
     const { email, password } = this.props
     return (
-      <form onSubmit={this.submitLogin.bind(this)}>
-        <input type="text" value={email} onChange={this.changeEmail.bind(this)}/>
-        <input type="text" value={password} onChange={this.changePassword.bind(this)}/>
-        <button type="submit" onClick={this.submitLogin.bind(this)}>Go</button>
-      </form>
+      <Card>
+        <CardHeader
+            title="Login"
+            subtitle="Login With VA Creds"
+        />
+        <CardText>
+        <form onSubmit={this.submitLogin.bind(this)}>
+          <TextField
+            hintText="Email"
+            type="text"
+            value={email}
+            onChange={this.changeEmail.bind(this)}
+          />
+          <TextField
+            hintText="Password"
+            type="password"
+            value={password}
+            onChange={this.changePassword.bind(this)}
+            style={{float: 'right'}}
+          />
+          <RaisedButton label="Login" primary={true} type="submit" onClick={this.submitLogin.bind(this)} />
+        </form>
+        </CardText>
+      </Card>
+
     )
   }
 
